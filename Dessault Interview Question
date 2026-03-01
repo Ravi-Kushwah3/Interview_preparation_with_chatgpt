@@ -1,0 +1,20 @@
+Q1:- What is sealed classes in java. ?
+Ans: Sealed is a keyword in java, Which was introduced in java 17 that restrict the classes to exteds or implements.
+     It control the inheritance hierarchy.
+
+Example:
+        public sealed class A permits B,C{}
+
+      final class B extends A{} // Its allowed to extends because its permitted by class A.
+      class C extends A{}       // Error: The class that extends any sealed class that should be final,sealed or non-sealed.
+
+   public sealed interface I1 permits B,C{}
+
+  final class A implements I1 {}  // Its fine.
+  final interface I2 exteds I2{}  // Not Allowed because interface could not be final. So for interface we use sealed or non-sealed.
+
+sealed Classes or Interface are used to Prevents unwanted or accidental subclassing.
+
+Q2: What is HashSet and TreeSet in java ?
+Ans: Both HashSet and TreeSet are implements Set Interface its allow one null element.
+     HashSet :- Its represent the unordered set of elements and does not allow duplicates.
